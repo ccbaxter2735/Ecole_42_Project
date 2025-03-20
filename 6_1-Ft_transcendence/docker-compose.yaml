@@ -1,0 +1,58 @@
+services:
+  website:
+    container_name: website
+    build:
+      context: frontend/website
+      dockerfile: Dockerfile
+    ports:
+      - "8080:443"
+    volumes:
+      - "${CERT_PATH}:/etc/nginx/ssl/ft_transcendence.crt"
+      - "${KEY_PATH}:/etc/nginx/ssl/ft_transcendence.key"
+      - "${FRONTEND_PATH}:/usr/share/nginx/"
+      - media_volume:/usr/share/nginx/media  # Ajout du volume partagé pour les médias
+    networks:
+      - transcendence
+    depends_on:
+      - backend
+    restart: always
+
+  backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      container_name: backend
+      environment:
+        - DJANGO_SUPERUSER_PASSWORD=transcendence
+      volumes:
+        - media_volume:/app/media  # Ajout du même volume pour partager les fichiers média
+      networks:
+        - transcendence
+      depends_on:
+        postgres:
+          condition: service_healthy
+
+  postgres:
+    image: postgres
+    networks:
+      - transcendence
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=transdb
+      - POSTGRES_USER=thomas
+      - POSTGRES_PASSWORD=transcendence
+    volumes:
+      - data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U thomas -d transdb'"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+      data:
+      media_volume:  # Déclaration du nouveau volume pour les médias
+
+networks:
+  transcendence:
+    external: false

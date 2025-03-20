@@ -1,0 +1,313 @@
+import { getFetchConfigWithCSRF } from "./router.js";
+
+export const translations = {
+  en: {
+    play_nav: "PLAY",
+    chat_nav: "CHAT",
+    leaderboard_nav: "LEADERBOARD",
+    profile_nav: "PROFILE",
+    sign_out_nav: "SIGN-OUT",
+    file_profile: "Choose File",
+    username_profile: "Username",
+    password_profile: "Password",
+    stat_profile: "Statistics",
+    history_profile: "Game History",
+    friend_profile: "Friends List",
+    edit_username: "Edit Username",
+    edit_password: "Edit Password",
+    wins_profile: "Wins: ",
+    losses_profile: "Losses: ",
+    total_profile: "Total: ",
+    title_home: "Welcome to our Pong 42",
+    subtitle_home: "Want to play?",
+    send_chat: "Send",
+    title_play: "Choose your game mode",
+    tournament_play: "TOURNAMENT",
+    versus_setup_play: "Versus Setup",
+    tournament_setup_play: "Tournament Setup",
+    name_player2_play: "Name of second player",
+    start_play: "Start",
+    player_play: "Player",
+    ia_play: "AI",
+    start_tournament: "Start Tournament",
+    rank_leader: "# Rank",
+    username_leader: "Username",
+    wins_leader: "Wins",
+    losses_leader: "Losses",
+    friend_leader: "Friends",
+    start_game: "START",
+    exit_game: "EXIT",
+    welcome_title: "Welcome to Pong42",
+    welcome_subtitle:
+      "Pong42 - A simple, original Pong game by students of School 42.",
+    login_prompt: "Please log in to play the game",
+    username_label: "Username",
+    password_label: "Password",
+    login_button: "Login",
+    login_42_button: "42 Login",
+    no_account: "Don't have an account?",
+    signup_link: "Sign up",
+    signup_title: "Create an account",
+    name_label: "Name",
+    close_button: "Close",
+    signup_button: "Sign up",
+    fill_fields_error: "Please fill in all fields",
+    login_failed_error: "Login failed",
+    login_success: "Successfully logged in!",
+    login_failed: "Login failed. Please check your credentials.",
+    signup_failed: "Failed to create account. Please try again.",
+    network_error: "Network error. Please check your connection.",
+    invalid_credentials: "Invalid username or password",
+    server_error: "Server error. Please try again later.",
+    session_expired: "Your session has expired. Please log in again.",
+    logout_success: "Successfully logged out",
+    username_length_error: "Username must not exceed 20 characters",
+    password_length_error: "Password must not exceed 20 characters",
+    signup_failed_error: "Sign up failed",
+    signup_success: "Sign up successful! You can now log in.",
+    success_notification: "Operation successful!",
+    error_notification: "Operation failed!",
+    profile_update_success: "Profile updated successfully!",
+    profile_update_error: "Failed to update profile",
+    username_update_error: "Error updating username",
+    password_update_error: "Error updating password",
+    avatar_update_error: "Error updating avatar",
+    forty_two_user_edit: "users 42 cannot modify their profile",
+    username_length_min_error: "Username must be more than 3 characters",
+    password_length_min_error: "Password must be more than 3 characters",
+    username_exists: "This username is already taken",
+    player_name_required: "Please enter a player name",
+    player_name_already_used: "This player name is already in use",
+    player_name_too_long: "Player name must not exceed 10 characters",
+    all_player_names_required: "Please fill in all player names",
+    player_names_must_be_unique: "Player names must be unique",
+    player_name_too_short: "Player name must be at least 3 characters",
+    username_alphanumeric_only:
+      "Username must contain only letters and numbers",
+    player_name_alphanumeric_only:
+      "Player name must contain only letters and numbers",
+  },
+  fr: {
+    play_nav: "JOUER",
+    chat_nav: "CHAT",
+    leaderboard_nav: "CLASSEMENT",
+    profile_nav: "PROFIL",
+    sign_out_nav: "SE DÉCONNECTER",
+    file_profile: "Choisir un fichier",
+    username_profile: "Nom d'utilisateur",
+    password_profile: "Mot de passe",
+    stat_profile: "Statistiques",
+    history_profile: "Historique des parties",
+    friend_profile: "Liste d'amis",
+    edit_username: "Modifier le nom d'utilisateur",
+    edit_password: "Modifier le mot de passe",
+    wins_profile: "Victoires: ",
+    losses_profile: "Défaites: ",
+    total_profile: "Total: ",
+    title_home: "Bienvenue sur notre Pong 42",
+    subtitle_home: "Tu veux jouer ?",
+    send_chat: "Envoyer",
+    title_play: "Choisissez votre mode de jeu",
+    tournament_play: "TOURNOI",
+    versus_setup_play: "Configuration en Versus",
+    tournament_setup_play: "Configuration du Tournoi",
+    name_player2_play: "Nom du deuxième joueur",
+    start_play: "Commencer",
+    player_play: "Joueur",
+    ia_play: "IA",
+    start_tournament: "Lancer le tournoi",
+    rank_leader: "# Rang",
+    username_leader: "Nom d'utilisateur",
+    wins_leader: "Victoires",
+    losses_leader: "Défaites",
+    friend_leader: "Amis",
+    start_game: "COMMENCER",
+    exit_game: "SORTIE",
+    welcome_title: "Bienvenue sur Pong42",
+    welcome_subtitle:
+      "Pong42 - Un jeu Pong simple et original par les étudiants de l'École 42.",
+    login_prompt: "Veuillez vous connecter pour jouer",
+    username_label: "Nom d'utilisateur",
+    password_label: "Mot de passe",
+    login_button: "Connexion",
+    login_42_button: "Connexion 42",
+    no_account: "Vous n'avez pas de compte ?",
+    signup_link: "S'inscrire",
+    signup_title: "Créer un compte",
+    name_label: "Nom",
+    close_button: "Fermer",
+    signup_button: "S'inscrire",
+    fill_fields_error: "Veuillez remplir tous les champs",
+    login_failed_error: "Échec de la connexion",
+    username_length_error:
+      "Le nom d'utilisateur ne doit pas dépasser 20 caractères",
+    password_length_error: "Le mot de passe ne doit pas dépasser 20 caractères",
+    signup_failed_error: "Échec de l'inscription",
+    signup_success:
+      "Inscription réussie ! Vous pouvez maintenant vous connecter.",
+    success_notification: "Opération réussie !",
+    error_notification: "Échec de l'opération !",
+    profile_update_success: "Profil mis à jour avec succès !",
+    profile_update_error: "Échec de la mise à jour du profil",
+    username_update_error: "Erreur lors de la mise à jour du nom d'utilisateur",
+    password_update_error: "Erreur lors de la mise à jour du mot de passe",
+    avatar_update_error: "Erreur lors de la mise à jour de l'avatar",
+    login_success: "Connexion réussie !",
+    login_failed: "Échec de la connexion. Veuillez vérifier vos identifiants.",
+    signup_failed: "Échec de la création du compte. Veuillez réessayer.",
+    network_error: "Erreur réseau. Veuillez vérifier votre connexion.",
+    invalid_credentials: "Nom d'utilisateur ou mot de passe invalide",
+    server_error: "Erreur serveur. Veuillez réessayer plus tard.",
+    session_expired: "Votre session a expiré. Veuillez vous reconnecter.",
+    logout_success: "Déconnexion réussie",
+    forty_two_user_edit:
+      "les utilisateurs 42 ne peuvent pas modifier leur profil",
+    username_length_min_error:
+      "Le nom d'utilisateur doit faire plus de 3 caractères",
+    password_length_min_error:
+      "Le mot de passe doit faire plus de 3 caractères",
+    username_exists: "Ce nom d'utilisateur est déjà pris",
+    player_name_required: "Veuillez entrer un nom de joueur",
+    player_name_already_used: "Ce nom de joueur est déjà utilisé",
+    player_name_too_long: "Le nom du joueur ne doit pas dépasser 10 caractères",
+    all_player_names_required: "Veuillez remplir tous les noms des joueurs",
+    player_names_must_be_unique: "Les noms des joueurs doivent être uniques",
+    player_name_too_short: "Le nom du joueur doit faire au moins 3 caractères",
+    username_alphanumeric_only:
+      "Le nom d'utilisateur ne doit contenir que des lettres et des chiffres",
+    player_name_alphanumeric_only:
+      "Le nom du joueur ne doit contenir que des lettres et des chiffres",
+  },
+  es: {
+    play_nav: "JUGAR",
+    chat_nav: "CHAT",
+    leaderboard_nav: "CLASIFICACIÓN",
+    profile_nav: "PERFIL",
+    sign_out_nav: "CERRAR SESIÓN",
+    file_profile: "Elegir archivo",
+    username_profile: "Nombre de usuario",
+    password_profile: "Contraseña",
+    stat_profile: "Estadísticas",
+    history_profile: "Historial de juegos",
+    friend_profile: "Lista de amigos",
+    edit_username: "Editar nombre de usuario",
+    edit_password: "Editar contraseña",
+    wins_profile: "Victorias: ",
+    losses_profile: "Derrotas: ",
+    total_profile: "Total: ",
+    title_home: "Bienvenido a nuestro Pong 42",
+    subtitle_home: "¿Quieres jugar?",
+    send_chat: "Enviar",
+    title_play: "Elige tu modo de juego",
+    tournament_play: "TORNEO",
+    versus_setup_play: "Configuración Versus",
+    tournament_setup_play: "Configuración del Torneo",
+    name_player2_play: "Nombre del segundo jugador",
+    start_play: "Comenzar",
+    player_play: "Jugador",
+    ia_play: "IA",
+    start_tournament: "Iniciar Torneo",
+    rank_leader: "# Rango",
+    username_leader: "Nombre de usuario",
+    wins_leader: "Victorias",
+    losses_leader: "Derrotas",
+    friend_leader: "Amigos",
+    start_game: "COMENZAR",
+    exit_game: "SALIR",
+    welcome_title: "Bienvenido a Pong42",
+    welcome_subtitle:
+      "Pong42 - Un juego Pong simple y original por estudiantes de la Escuela 42.",
+    login_prompt: "Por favor, inicia sesión para jugar",
+    username_label: "Nombre de usuario",
+    password_label: "Contraseña",
+    login_button: "Iniciar sesión",
+    login_42_button: "Inicio sesión 42",
+    no_account: "¿No tienes una cuenta?",
+    signup_link: "Registrarse",
+    signup_title: "Crear una cuenta",
+    name_label: "Nombre",
+    close_button: "Cerrar",
+    signup_button: "Registrarse",
+    fill_fields_error: "Por favor, completa todos los campos",
+    login_failed_error: "Error al iniciar sesión",
+    username_length_error:
+      "El nombre de usuario no debe exceder los 20 caracteres",
+    password_length_error: "La contraseña no debe exceder los 20 caracteres",
+    signup_failed_error: "Error al registrarse",
+    signup_success: "¡Registro exitoso! Ahora puedes iniciar sesión.",
+    success_notification: "¡Operación exitosa!",
+    error_notification: "¡Error en la operación!",
+    profile_update_success: "¡Perfil actualizado con éxito!",
+    profile_update_error: "Error al actualizar el perfil",
+    username_update_error: "Error al actualizar el nombre de usuario",
+    password_update_error: "Error al actualizar la contraseña",
+    avatar_update_error: "Error al actualizar el avatar",
+    login_success: "¡Inicio de sesión exitoso!",
+    login_failed:
+      "Error al iniciar sesión. Por favor, verifica tus credenciales.",
+    signup_failed: "Error al crear la cuenta. Por favor, inténtalo de nuevo.",
+    network_error: "Error de red. Por favor, verifica tu conexión.",
+    invalid_credentials: "Nombre de usuario o contraseña inválidos",
+    server_error: "Error del servidor. Por favor, inténtalo más tarde.",
+    session_expired:
+      "Tu sesión ha expirado. Por favor, inicia sesión de nuevo.",
+    logout_success: "Sesión cerrada con éxito",
+    forty_two_user_edit: "los usuarios 42 no pueden modificar su perfil",
+    username_length_min_error:
+      "El nombre de usuario debe tener más de 3 caracteres",
+    password_length_min_error: "La contraseña debe tener más de 3 caracteres",
+    username_exists: "Este nombre de usuario ya está en uso",
+    player_name_required: "Por favor, introduce un nombre de jugador",
+    player_name_already_used: "Este nombre de jugador ya está en uso",
+    player_name_too_long:
+      "El nombre del jugador no debe exceder los 10 caracteres",
+    all_player_names_required:
+      "Por favor, completa todos los nombres de jugadores",
+    player_names_must_be_unique:
+      "Los nombres de los jugadores deben ser únicos",
+    player_name_too_short:
+      "El nombre del jugador debe tener al menos 3 caracteres",
+    username_alphanumeric_only:
+      "El nombre de usuario solo debe contener letras y números",
+    player_name_alphanumeric_only:
+      "El nombre del jugador solo debe contener letras y números",
+  },
+};
+
+export function translatePage(lang) {
+  const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+  elementsToTranslate.forEach((element) => {
+    const translationKey = element.getAttribute("data-i18n");
+    element.textContent = translations[lang][translationKey];
+  });
+}
+
+document.querySelectorAll(".dropdown-item[data-lang]").forEach((link) => {
+  link.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const selectedLang = link.getAttribute("data-lang");
+
+    try {
+      const config = await getFetchConfigWithCSRF();
+      const response = await fetch("/api/game/modiflang/", {
+        method: "POST",
+        headers: {
+          ...config.headers,
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ lang: selectedLang }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update language");
+      }
+
+      localStorage.setItem("lang", selectedLang);
+
+      translatePage(selectedLang);
+    } catch (error) {
+      console.error("Error updating language:", error);
+    }
+  });
+});

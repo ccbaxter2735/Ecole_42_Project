@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    @font-face {
+      font-family: "Satoshi";
+      src: url("../fonts/Satoshi-Variable.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: "Satoshi", sans-serif;
+    }
+
+    .title {
+      font-family: "Karmatic Arcade", sans-serif;
+    }
+
+    .grid-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(10, 9, 121, 1) 24%,
+        rgba(0, 212, 255, 1) 88%
+      );
+      background-size: 400% 400%;
+      animation: gradient 5s ease infinite;
+      height: 100vh;
+    }
+
+    .progress-circle {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 20px auto;
+    }
+
+    .progress-circle svg {
+      transform: rotate(-90deg);
+    }
+
+    .circle-bg {
+      fill: none;
+      stroke: #e9ecef;
+      stroke-width: 15;
+    }
+
+    .circle-progress {
+      fill: none;
+      stroke: #198754;
+      stroke-width: 15;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.5s ease-in-out;
+    }
+
+    .progress-value {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .stat-card {
+      transition: transform 0.2s;
+    }
+  </style>
+  <body>
+    <div class="grid-background"></div>
+    <div class="container">
+      <div class="card mt-5 shadow">
+        <div class="row my-4">
+          <div class="col-sm-4">
+            <div class="card-body text-center">
+              <h3 class="mb-3" id="profile-username"></h3>
+              <img
+                class="rounded shadow"
+                alt="Profile Photo"
+                id="profile-image"
+                style="width: 200px; height: 200px; object-fit: cover"
+              />
+              <div class="mt-3">
+                <label
+                  for="profilePic"
+                  class="btn btn-dark"
+                  data-i18n="file_profile"
+                ></label>
+                <input
+                  type="file"
+                  id="profilePic"
+                  accept="image/*"
+                  class="d-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-8">
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label
+                    for="username"
+                    class="form-label"
+                    data-i18n="username_profile"
+                  ></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    autocomplete="username"
+                    required
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-dark mb-3"
+                  id="changeUsername"
+                  data-i18n="edit_username"
+                ></button>
+
+                <div class="mb-3">
+                  <label
+                    for="password"
+                    class="form-label"
+                    data-i18n="password_profile"
+                  ></label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-dark"
+                  id="changeProfile"
+                  data-i18n="edit_password"
+                ></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-5">
+        <div class="col-12">
+          <div class="card shadow stat-card">
+            <div class="card-body">
+              <h4
+                class="card-title text-center mb-4"
+                data-i18n="stat_profile"
+              ></h4>
+
+              <div class="progress-circle">
+                <svg width="150" height="150">
+                  <circle class="circle-bg" cx="75" cy="75" r="60"></circle>
+                  <circle
+                    class="circle-progress"
+                    cx="75"
+                    cy="75"
+                    r="60"
+                  ></circle>
+                </svg>
+                <div class="progress-value">
+                  <h3 class="mb-0" id="win-percentage">0%</h3>
+                  <p class="text-muted mb-0" data-i18n="wins_profile"></p>
+                </div>
+              </div>
+
+              <div class="row text-center mt-4">
+                <div class="col-4">
+                  <p class="mb-0">
+                    <span data-i18n="wins_profile"></span>
+                    <span
+                      id="win_profile_id"
+                      class="d-block fs-4 text-success fw-bold"
+                    ></span>
+                  </p>
+                </div>
+                <div class="col-4">
+                  <p class="mb-0">
+                    <span data-i18n="losses_profile"></span>
+                    <span
+                      id="losses_profile_id"
+                      class="d-block fs-4 text-danger fw-bold"
+                    ></span>
+                  </p>
+                </div>
+                <div class="col-4">
+                  <p class="mb-0">
+                    <span data-i18n="total_profile"></span>
+                    <span
+                      id="total_profile_id"
+                      class="d-block fs-4 fw-bold"
+                    ></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-5">
+        <div class="col-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title" data-i18n="history_profile"></h4>
+              <div id="history" class="table-responsive"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-5">
+        <div class="col-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title" data-i18n="friend_profile"></h4>
+              <div id="friend" class="table-responsive"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+  </body>
+</html>

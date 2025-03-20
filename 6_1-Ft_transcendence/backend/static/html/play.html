@@ -1,0 +1,168 @@
+<div class="grid-background"></div>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <h1
+        style="color: rgb(255, 255, 255)"
+        class="mb-4"
+        data-i18n="title_play"
+      ></h1>
+      <div class="d-flex justify-content-center gap-4">
+        <button
+          type="button"
+          class="btn btn-primary btn-lg flex-fill"
+          data-bs-toggle="modal"
+          data-bs-target="#versusModal"
+        >
+          VERSUS
+        </button>
+        <button
+          type="button"
+          class="btn btn-success btn-lg flex-fill"
+          data-bs-toggle="modal"
+          data-bs-target="#tournamentModal"
+          data-i18n="tournament_play"
+        ></button>
+        <button
+          id="aiBtn"
+          ,false,false
+          type="button"
+          class="btn btn-danger btn-lg flex-fill"
+          data-i18n="ia_play"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal VERSUS -->
+<div
+  class="modal fade"
+  id="versusModal"
+  tabindex="-1"
+  aria-labelledby="versusModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          class="modal-title"
+          id="versusModalLabel"
+          data-i18n="versus_setup_play"
+        ></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="versusForm">
+          <div class="mb-3">
+            <label
+              for="versusPlayerName"
+              id="versusLabelPlayerName"
+              class="form-label"
+              data-i18n="name_player2_play"
+            ></label>
+            <input
+              type="text"
+              class="form-control"
+              id="versusPlayerName"
+              name="versusPlayerName"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            data-i18n="start_play"
+            id="versusBtn"
+          ></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal TOURNAMENT -->
+<div
+  class="modal fade"
+  id="tournamentModal"
+  tabindex="-1"
+  aria-labelledby="tournamentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tournamentModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="tournamentForm">
+          <div class="mb-3">
+            <label for="player1Name" class="form-label"
+              ><a data-i18n="player_play"></a> 1</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="player1Name"
+              name="player1Name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="player2Name" class="form-label"
+              ><a data-i18n="player_play"></a> 2</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="player2Name"
+              name="player2Name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="player3Name" class="form-label"
+              ><a data-i18n="player_play"></a> 3</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="player3Name"
+              name="player3Name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="player4Name" class="form-label"
+              ><a data-i18n="player_play"></a> 4</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="player4Name"
+              name="player4Name"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-success"
+            data-i18n="start_tournament"
+          ></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

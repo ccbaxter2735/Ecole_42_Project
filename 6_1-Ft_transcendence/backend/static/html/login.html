@@ -1,0 +1,145 @@
+<div class="grid-background"></div>
+<div class="container" style="color: rgb(255, 255, 255)">
+  <div class="row my-5 text-center">
+    <h1 data-i18n="welcome_title"></h1>
+    <p data-i18n="welcome_subtitle"></p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5 my-5">
+      <h5 data-i18n="login_prompt"></h5>
+      <div class="my-5">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label
+              for="username"
+              class="form-label"
+              data-i18n="username_label"
+            ></label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label
+              for="password"
+              class="form-label"
+              data-i18n="password_label"
+            ></label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <div class="d-grid gap-2 my-5">
+            <button
+              type="submit"
+              id="loginBtn"
+              class="btn btn-primary btn-lg fs-4"
+              data-i18n="login_button"
+            ></button>
+          </div>
+        </form>
+
+        <div class="d-grid gap-2">
+          <a
+            href="https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-cb17e66a4beb545c4ab3496aba7f5773e7535392d413296539d1e6a96a6e9662&redirect_uri=https%3A%2F%2Flocalhost%3A8080%2Fapi%2Foauth%2Fcallback%2F&response_type=code"
+            id="42button"
+            class="btn btn-secondary btn-lg fs-4"
+            data-i18n="login_42_button"
+          ></a>
+        </div>
+
+        <p class="mt-3">
+          <span data-i18n="no_account"></span>
+          <a
+            href="#"
+            id="signupLink"
+            class="link-light"
+            data-bs-toggle="modal"
+            data-bs-target="#signupModal"
+            data-i18n="signup_link"
+          ></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="signupModal"
+  tabindex="-1"
+  aria-labelledby="signupModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          class="modal-title"
+          id="signupModalLabel"
+          data-i18n="signup_title"
+        ></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="signupForm">
+          <div class="mb-3">
+            <label
+              for="signupUsername"
+              class="form-label"
+              data-i18n="username_label"
+            ></label>
+            <input
+              type="text"
+              class="form-control"
+              id="signupUsername"
+              name="signupUsername"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="signupPassword"
+              class="form-label"
+              data-i18n="password_label"
+            ></label>
+            <input
+              type="password"
+              class="form-control"
+              id="signupPassword"
+              name="signupPassword"
+              required
+            />
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          id="submitSignUpBtn"
+          type="submit"
+          form="signupForm"
+          class="btn btn-primary"
+          data-i18n="signup_button"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
